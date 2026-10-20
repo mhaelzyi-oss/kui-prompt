@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img">
+  <title>KUI Desk</title>
+  <rect x="4" y="4" width="88" height="88" rx="24" fill="#111821"/>
+  <g fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round">
+    <path d="M48 7 83 27v42L48 89 13 69V27z"/>
+    <path d="m35 27 0 42m0-21 27-21M35 48l29 21" stroke="#ffd966" stroke-width="6"/>
+  </g>
+  <path d="M62 78h20" fill="none" stroke="#d4af37" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

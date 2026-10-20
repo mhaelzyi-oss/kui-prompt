@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-electron/
+release/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+coverage/
+test-results/
+*.dmp
+!fixtures/**/*.dmp
+tools/platform-tools/
+kui-prompt-error.md
+kui-desk-error.md

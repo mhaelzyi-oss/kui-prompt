@@ -1,0 +1,105 @@
+{
+  "name": "kui-prompt",
+  "productName": "KUI Desk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "This computer and the phones you plug in.",
+  "license": "MIT",
+  "author": "Krypton Ultimate Inc II",
+  "main": "dist/main/main.js",
+  "bin": {
+    "kui-prompt": "dist/cli/index.js"
+  },
+  "scripts": {
+    "cli": "tsx src/cli/index.ts",
+    "start": "npm run build && electron .",
+    "test": "vitest run",
+    "build": "node scripts/clean.mjs && tsc && vite build && node scripts/copy-static.mjs",
+    "dev:ui": "vite --host 127.0.0.1 --port 5173",
+    "preview": "tsx scripts/preview-server.mts",
+    "icons": "node scripts/write-prompt-icon.mjs",
+    "dist": "npm run dist:win",
+    "dist:win": "npm run build && electron-builder --win"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "koffi": "^2.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.7.0",
+    "electron": "^37.5.1",
+    "electron-builder": "^26.0.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "com.kryptonultimateincII.KUIDesk",
+    "productName": "KUI Desk",
+    "copyright": "Copyright © 2026 Krypton Ultimate Inc II",
+    "asar": true,
+    "asarUnpack": [
+      "**/node_modules/koffi/**"
+    ],
+    "npmRebuild": false,
+    "nodeGypRebuild": false,
+    "buildDependenciesFromSource": false,
+    "directories": {
+      "output": "release",
+      "buildResources": "branding"
+    },
+    "files": [
+      "dist/**/*",
+      "branding/icon-prompt.png",
+      "branding/icon-prompt.ico",
+      "TERMS.md",
+      "LICENSE",
+      "package.json"
+    ],
+    "extraFiles": [
+      "TERMS.md",
+      "LICENSE"
+    ],
+    "executableName": "KUI Desk",
+    "win": {
+      "icon": "branding/icon-prompt.ico",
+      "executableName": "KUI Desk",
+      "legalTrademarks": "Krypton Ultimate Inc II",
+      "signExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "KUI Desk",
+      "license": "LICENSE",
+      "installerIcon": "branding/icon-prompt.ico",
+      "uninstallerIcon": "branding/icon-prompt.ico",
+      "artifactName": "${productName} Setup ${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName} Portable ${version}.${ext}"
+    }
+  }
+}
